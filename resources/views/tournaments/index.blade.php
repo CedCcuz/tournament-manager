@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="card mt-5">
-  <h2 class="card-header">Laravel 12 Tutorial</h2>
+  <h2 class="card-header">Tournament Manager</h2>
   <div class="card-body">
 
         @session('success')
@@ -18,8 +18,8 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Details</th>
-                    <th width="250px">Action</th>
+                    <th>Location</th>
+                    <th width="250px">Actions</th>
                 </tr>
             </thead>
 
@@ -30,14 +30,10 @@
                     <td>{{ $tournament->location }}</td>
                     <td>
                         <form action="{{ route('tournaments.destroy',$tournament->id) }}" method="POST">
-
-                            <a class="btn btn-info btn-sm" href="{{ route('tournaments.show',$tournament->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-
+                            <a class="btn btn-light btn-sm" href="{{ route('tournaments.show',$tournament->id) }}"><i class="fa-solid fa-list"></i> Show</a>
                             <a class="btn btn-primary btn-sm" href="{{ route('tournaments.edit',$tournament->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-
                             @csrf
                             @method('DELETE')
-
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
                         </form>
                     </td>

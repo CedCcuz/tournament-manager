@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TournamentUpdateRequest extends FormRequest
+class CategoryStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class TournamentUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|required|string|max:255',
-            'location' => 'sometimes|required|string|max:255',
-            'type' => 'sometimes|required|in:double-elimination',
+            'tournament_id' => 'required|exists:tournaments,id',
+            'name' => 'required|string|max:255',
         ];
     }
 }

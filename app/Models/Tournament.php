@@ -11,4 +11,9 @@ class Tournament extends Model
         'location',
         'type',
     ];
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }

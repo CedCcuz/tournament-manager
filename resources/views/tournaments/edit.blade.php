@@ -29,14 +29,15 @@
         </div>
 
         <div class="mb-3">
-            <label for="inputDetail" class="form-label"><strong>Detail:</strong></label>
-            <textarea
-                class="form-control @error('detail') is-invalid @enderror"
-                style="height:150px"
-                name="detail"
-                id="inputDetail"
-                placeholder="Detail">{{ $tournament->detail }}</textarea>
-            @error('detail')
+            <label for="inputLocation" class="form-label"><strong>Location:</strong></label>
+            <input
+                type="text"
+                name="location"
+                value="{{ $tournament->location }}"
+                class="form-control @error('location') is-invalid @enderror"
+                id="inputLocation"
+                placeholder="Location">
+            @error('location')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>

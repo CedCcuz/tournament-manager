@@ -17,11 +17,37 @@
                 {{ $tournament->name }}
             </div>
         </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
             <div class="form-group">
-                <strong>Details:</strong> <br/>
-                {{ $tournament->detail }}
+                <strong>Location:</strong> <br/>
+                {{ $tournament->location }}
             </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+            <div class="form-group">
+            <strong>Categories:</strong>
+            <ul class="list-unstyled">
+                @forelse ($tournament->categories as $category)
+                    <li>{{ $category->name }}</li>
+                    @empty
+                    <li>None</li>
+                @endforelse
+            </ul>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+            <form action="{{ route('categories.store') }}" method="POST" class="d-flex align-items-center">
+                @csrf
+                <div class="form-group me-2">
+                    <label for="name" class="form-label"><strong>Add a new category:</strong></label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Category name">
+                </div>
+                <input type="hidden" name="tournament_id" value="{{ $tournament->id }}">
+                <button type="submit" class="btn btn-success mt-4"><i class="fa fa-plus"></i></button>
+            </form>
         </div>
     </div>
 
