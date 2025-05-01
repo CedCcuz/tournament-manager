@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->belongsTo(Tournament::class);
     }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }
 }

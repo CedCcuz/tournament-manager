@@ -28,13 +28,15 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
             <div class="form-group">
             <strong>Categories:</strong>
-            <ul class="list-unstyled">
+            <div class="d-flex flex-wrap gap-2">
                 @forelse ($tournament->categories as $category)
-                    <li>{{ $category->name }}</li>
-                    @empty
-                    <li>None</li>
+                    <a href="{{ route('categories.show', $category->id) }}" class="btn btn-outline-primary btn-sm">
+                        {{ $category->name }}
+                    </a>
+                @empty
+                    <span class="text-muted">None</span>
                 @endforelse
-            </ul>
+            </div>
             </div>
         </div>
 
